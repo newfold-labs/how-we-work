@@ -89,4 +89,4 @@ When we name folders, name files and name things in general, we lean towards `/i
 
 ## Prefer This, Not That
 
-[STUB TO BE COMPLETED]
+[STUB]
