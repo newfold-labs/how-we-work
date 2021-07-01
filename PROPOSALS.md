@@ -51,7 +51,7 @@ Ex:
 * `\Newfold\Bluehost_Plugin`
 * `\Newfold\HostGator_Plugin`
 * `\Newfold\WebCom_Plugin`
-* `\Newfold\Maestro``
+* `\Newfold\Maestro`
 * `\Newfold\Migrator
 
 * `\Newfold\Module\Admin`
