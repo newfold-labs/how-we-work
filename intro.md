@@ -17,6 +17,10 @@ The obvious and notable exception -- that are true rules to be followed -- are S
 
 ## Philosophies
 
+### Contributing
+
+We believe in WordPress and our partnership has allowed us to support it for over 10 years. Our in-house team consists of dedicated WordPress experts to provide the best support and we dedicate engineers on our development staff to full-time WordPress Core development. From our servers to our internal tools to the scripts our customers rely on, we’re built on open source. To give back to the community we work hand-in-hand with developers to leverage our resources and expertise towards helping their software thrive. With a development team experienced in optimizing over 80 open source platforms, Bluehost is the world's leading solution for open source implementation and development.
+
 ### Learn it all over know it all
 
 A key part of our team culture is to always be learning. Our team strives to always have the best questions, not the best answers. We offer and embrace informed answers. "I don't know, let me get back to you" is not only acceptable but encouraged. 
