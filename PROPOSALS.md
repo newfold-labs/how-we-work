@@ -21,78 +21,78 @@ Generally move prefixing to `nf*`
 All Plugins/Modules use `/newfold/{PRODUCT}/v{VERSION}/{ENDPOINT}` regardless of brand.
 
 Ex:
-* /newfold/staging/v3/deply
-* /newfold/plugin/v2/error
-* /newfold/bluehost/v1/unique-bluehost-event
-* /newfold/maestro/v4/action
-* /newfold/builder/v0/action (beta/alpha accomodation)
-* /newfold/data/v3/batch
-* /newfold/notifications/v2
+* `/newfold/staging/v3/deply`
+* `/newfold/plugin/v2/error`
+* `/newfold/bluehost/v1/unique-bluehost-event`
+* `/newfold/maestro/v4/action`
+* `/newfold/builder/v0/action` (beta/alpha accomodation)
+* `/newfold/data/v3/batch`
+* `/newfold/notifications/v2`
 
 ## PHP Namespaces / Code Splitting 
 
-* \Newfold\WP ("super"/"primary" package shared as generic classes between any plugin or module)
-    * \Newfold\WP\Account() (interact with Newfold Platform account data)
-    * \Newfold\WP\Asset() (generic class for registering and enqueueing CSS & JavaScript as dependencies)
-    * \Newfold\WP\CLI_Command() (abstract base)
-    * \Newfold\WP\Database_Routine (shared class for running database upgrade routines)
-    * \Newfold\WP\HTTP() (contains a `cache()` method with standardized transient caching)
-    * \Newfold\WP\Hiive_API() (extends HTTP)
-    * \Newfold\WP\Permissions() (generic class for checking user permissions)
-    * \Newfold\WP\Plugin_Updater()
-    * \Newfold\WP\REST_Endpoint() (abstract base)
-    * \Newfold\WP\Safe_Boot() (shared class any plugin or theme can implement to assure platform compat)
+* `\Newfold` ("super"/"primary" package shared as generic classes between any plugin or module)
+    * `\Newfold\Account()` (interact with Newfold Platform account data)
+    * `\Newfold\Asset()` (generic class for registering and enqueueing CSS & JavaScript as dependencies)
+    * `\Newfold\CLI_Command()` (abstract base)
+    * `\Newfold\Database_Routine()` (shared class for running database upgrade routines)
+    * `\Newfold\HTTP()` (contains a `cache()` method with standardized transient caching)
+    * `\Newfold\Hiive_API()` (extends HTTP)
+    * `\Newfold\Permissions()` (generic class for checking user permissions)
+    * `\Newfold\Plugin_Updater()`
+    * `\Newfold\REST_Endpoint()` (abstract base)
+    * `\Newfold\Safe_Boot()` (shared class any plugin or theme can implement to assure platform compat)
 
-* \Newfold\WP\Plugin (For all hosting plugins, "THE" plugin, not any plugin -- this could be Platform_Plugin, but brevity?)
-    * \Newfold\WP\Plugin\Install()
-    * \Newfold\WP\Plugin\Module_Loader()
-    * \Newfold\WP\Plugin\Updates()
-    * \Newfold\WP\Plugin\Upgrader() (runs database routines in plugin and modules)
-* \Newfold\WP\Bluehost_Plugin
-* \Newfold\WP\HostGator_Plugin
-* \Newfold\WP\WebCom_Plugin
-* \Newfold\WP\Maestro
-* \Newfold\WP\Migrator
+* `\Newfold\Plugin` (For all hosting plugins, "THE" plugin, not any plugin -- this could be Platform_Plugin, but brevity?)
+    * `\Newfold\Plugin\Install()`
+    * `\Newfold\Plugin\Module_Loader()`
+    * `\Newfold\Plugin\Updates()`
+    * `\Newfold\Plugin\Upgrader()` (runs database routines in plugin and modules)
+* `\Newfold\Bluehost_Plugin`
+* `\Newfold\HostGator_Plugin`
+* `\Newfold\WebCom_Plugin`
+* `\Newfold\Maestro``
+* `\Newfold\Migrator
 
-* \Newfold\Module\Admin
-    * \Newfold\Module\Admin\Admin_Bar()
-    * \Newfold\Module\Admin\Dashboard_Widget()
-    * \Newfold\Module\Admin\Mods()
-    * \Newfold\Module\Admin\Notifications()
-    * \Newfold\Module\Admin\UI()
-* \Newfold\Module\Business_Reviews
-* \Newfold\Module\Builder
-* \Newfold\Module\Data
-* \Newfold\Module\Default_Content
-* \Newfold\Module\Gutenframe
-* \Newfold\Module\Integrations
-    * \Newfold\Module\Integrations\AIOSEO()
-    * \Newfold\Module\Integrations\Creative_Email()
-    * \Newfold\Module\Integrations\Constant_Contact()
-    * \Newfold\Module\Integrations\Ecomdash()
-    * \Newfold\Module\Integrations\Jetpack()
-    * \Newfold\Module\Integrations\WP_Forms()
-    * \Newfold\Module\Integrations\WooCommerce()
-* \Newfold\Module\Mojo_Products
-* \Newfold\Module\Performance (née endurance-page-cache)
-* \Newfold\Module\Site_Curtain
-    * \Newfold\Module\Site_Curtain\Base()
-    * \Newfold\Module\Site_Curtain\Coming_Soon()
-    * \Newfold\Module\Site_Curtain\Maintenance()
-* \Newfold\Module\Staging
-* \Newfold\Module\Spam_Prevention
-* \Newfold\Module\SSO
-* \Newfold\Modue\Tours
-* \Newfold\Module\WP_API
-* \Newfold\Module\WP_Cron
-* \Newfold\Module\WP_CLI
-* \Newfold\Module\WP_Login
+* `\Newfold\Module\Admin`
+    * `\Newfold\Module\Admin\Admin_Bar()`
+    * `\Newfold\Module\Admin\Dashboard_Widget()`
+    * `\Newfold\Module\Admin\Mods()`
+    * `\Newfold\Module\Admin\Notifications()`
+    * `\Newfold\Module\Admin\UI()`
+* `\Newfold\Module\Business_Reviews`
+* `\Newfold\Module\Builder`
+* `\Newfold\Module\Data`
+* `\Newfold\Module\Default_Content`
+* `\Newfold\Module\Gutenframe`
+* `\Newfold\Module\Integrations`
+    * `\Newfold\Module\Integrations\AIOSEO()`
+    * `\Newfold\Module\Integrations\Creative_Email()`
+    * `\Newfold\Module\Integrations\Constant_Contact()`
+    * `\Newfold\Module\Integrations\Ecomdash()`
+    * `\Newfold\Module\Integrations\Jetpack()`
+    * `\Newfold\Module\Integrations\WP_Forms()`
+    * `\Newfold\Module\Integrations\WooCommerce()`
+* `\Newfold\Module\Mojo_Products`
+* `\Newfold\Module\Performance` (née endurance-page-cache)
+* `\Newfold\Module\Site_Curtain`
+    * `\Newfold\Module\Site_Curtain\Base()`
+    * `\Newfold\Module\Site_Curtain\Coming_Soon()`
+    * `\Newfold\Module\Site_Curtain\Maintenance()`
+* `\Newfold\Module\Staging`
+* `\Newfold\Module\Spam_Prevention`
+* `\Newfold\Module\SSO`
+* `\Newfold\Modue\Tours`
+* `\Newfold\Module\WP_API`
+* `\Newfold\Module\WP_Cron`
+* `\Newfold\Module\WP_CLI`
+* `\Newfold\Module\WP_Login`
 
-* \Newfold\Content_Platform
-* \Newfold\Content_Platform\Related_Products
-* \Newfold\Content_Platform\Theme
+* `\Newfold\Content_Platform`
+* `\Newfold\Content_Platform\Related_Products`
+* `\Newfold\Content_Platform\Theme`
 
-* \Newfold\Hiive (very low priority if ever as its an isolated environment we control)
+* `\Newfold\Hiive` (very low priority if ever as its an isolated environment we control)
 
 # JavaScript Namespacing
 
