@@ -31,17 +31,17 @@ Ex:
 
 ## PHP Namespaces / Code Splitting 
 
-* `\Newfold` ("super"/"primary" package shared as generic classes between any plugin or module)
-    * `\Newfold\Account()` (interact with Newfold Platform account data)
-    * `\Newfold\Asset()` (generic class for registering and enqueueing CSS & JavaScript as dependencies)
-    * `\Newfold\CLI_Command()` (abstract base)
-    * `\Newfold\Database_Routine()` (shared class for running database upgrade routines)
-    * `\Newfold\HTTP()` (contains a `cache()` method with standardized transient caching)
-    * `\Newfold\Hiive_API()` (extends HTTP)
-    * `\Newfold\Permissions()` (generic class for checking user permissions)
-    * `\Newfold\Plugin_Updater()`
-    * `\Newfold\REST_Endpoint()` (abstract base)
-    * `\Newfold\Safe_Boot()` (shared class any plugin or theme can implement to assure platform compat)
+* `\Newfold\WP` ("super"/"primary" package shared as generic classes between any plugin or module)
+    * `\Newfold\WP\Account()` (interact with Newfold Platform account data)
+    * `\Newfold\WP\Asset()` (generic class for registering and enqueueing CSS & JavaScript as dependencies)
+    * `\Newfold\WP\CLI_Command()` (abstract base)
+    * `\Newfold\WP\Database_Routine()` (shared class for running database upgrade routines)
+    * `\Newfold\WP\HTTP()` (contains a `cache()` method with standardized transient caching)
+    * `\Newfold\WP\Hiive_API()` (extends HTTP)
+    * `\Newfold\WP\Permissions()` (generic class for checking user permissions)
+    * `\Newfold\WP\Plugin_Updater()`
+    * `\Newfold\WP\REST_Endpoint()` (abstract base)
+    * `\Newfold\WP\Safe_Boot()` (shared class any plugin or theme can implement to assure platform compat)
 
 * `\Newfold\Plugin` (For all hosting plugins, "THE" plugin, not any plugin -- this could be Platform_Plugin, but brevity?)
     * `\Newfold\Plugin\Install()`
