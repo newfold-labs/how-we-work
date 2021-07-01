@@ -52,7 +52,7 @@ Ex:
 * `\Newfold\HostGator_Plugin`
 * `\Newfold\WebCom_Plugin`
 * `\Newfold\Maestro`
-* `\Newfold\Migrator
+* `\Newfold\Migrator`
 
 * `\Newfold\Module\Admin`
     * `\Newfold\Module\Admin\Admin_Bar()`
