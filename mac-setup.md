@@ -100,8 +100,19 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 There are lots of ways to organize files. This is one recommended way that addresses some common needs and problems.
 
-1. Create a `~/projects` directory.
+#### 1. Create a `~/projects` directory.
+
+Clone major projects into Projects:
+```bash
+gh repo clone bluehost/bluehost-wordpress-plugin
+gh repo clone bluehost/endurance-wp-module-data
+...
+```
+
 2. Create a `~/env` directory.
+
+Create
+
 3. Clone repositories into `~/projects` and as you create environments, symlink into the environment. 
 
 ```bash
