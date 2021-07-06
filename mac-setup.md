@@ -12,6 +12,19 @@ If you already have a machine configured with some of these tools, be mindful ab
 
 ## System Packages
 
+### Overview
+
+We rely on a number of cross-platform development technologies including:
+
+* Git / GitHub CLI
+* Node
+* NPM
+* Yarn
+* Composer
+* WP-CLI
+* Gatsby CLI
+* Misc. bash scripts
+
 ### 1. Install the latest version of [`brew`](https://brew.sh/)
 
 Homebrew is our package manager of choice on MacOS.
@@ -44,8 +57,14 @@ brew install yarn git composer gh cask curl imapsync lsd subversion wget
 ```
 
 ### 5. Use `npm` to install `--global` packages
+
+_NOTE: 
 ```bash
-npm install --global gatsby-cli wrangler-cli lando
+npm install --global \
+concurrently \
+gatsby-cli \
+@wordpress/env \
+@cloudflare/wrangler \ 
 ```
 
 ### 6. OPTIONAL: Use Cask to download some open-source GUIs
