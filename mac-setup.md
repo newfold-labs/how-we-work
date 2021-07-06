@@ -58,7 +58,8 @@ brew install yarn git composer gh cask curl imapsync lsd subversion wget
 
 ### 5. Use `npm` to install `--global` packages
 
-_NOTE: 
+_NOTE: When using nvm, global packages are per-version unless you create-your-own symlink rig._ 
+
 ```bash
 npm install --global \
 concurrently \
