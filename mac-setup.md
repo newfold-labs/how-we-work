@@ -4,7 +4,7 @@ We work with in numerous development contexts: WordPress, WP-CLI, Laravel, Gatsb
 
 As a result, as we switch gears our machines need to be able to switch between these contexts with us. You might not need everything here for every project, however, this is how our team generally configures our machines.
 
-## WARNING: Intended for fresh machines
+## ⚠️ WARNING: Intended for fresh machines
 
 This guide is meant for starting from a stock machine image -- not an existing development machine.
 
