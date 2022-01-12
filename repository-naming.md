@@ -175,11 +175,11 @@ For example:
 | `github-action`       | GitHub Action
 | `laravel-app`         | Laravel App
 | `laravel-package`     | Laravel Package
-| `newfold-wp-module`   | NewFold WordPress Module
-| `wp-cli-package`      | WordPress CLI Package
 | `wordpress-dropin`    | WordPress Drop-in
 | `wordpress-network`   | WordPress Multisite
 | `wordpress-plugin`    | WordPress Plugin
 | `wordpress-plugin-mu` | WordPress MU Plugin
 | `wordpress-site`      | WordPress Site
 | `wordpress-theme`     | WordPress Theme
+| `wp-cli-package`      | WordPress CLI Package
+| `wp-module-newfold`   | NewFold WordPress Module
