@@ -27,15 +27,9 @@ Example:
 Node packages follow this naming convention:
 
 ```
-project-name
-```
-
-OR
-
-```
 @organization/project-name
 ```
 
-The organization name, if used, should match the GitHub account name.
+The organization name should always be used and should match the GitHub account name.
 
 The project name should always match the name of the GitHub repository URL slug.
