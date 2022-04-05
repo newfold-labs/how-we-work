@@ -1,5 +1,1 @@
----
-title: Laravel
----
-
 # Laravel
