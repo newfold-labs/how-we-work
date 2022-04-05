@@ -1,88 +1,28 @@
-# Newfold Digital WordPress Team Code Standards & Naming Conventions
+# How We Work
 
-This is a living document where the Newfold Digital WordPress Team tracks code standards, naming conventions and general best practices for building experiences in WordPress as well as general websites and web apps.
+This document organizes how we work at Newfold Digital on WordPress and WordPress-adjacent codebases.
 
 ## Table of Contents
 
-### Introduction
-* Goals
-* Philosophies
-
-### Naming
-* Best Practices
-* Namespacing
-* Brevity vs. Clarity
-* [STUB] This, Not That
-
-### Architecture
-* Philosophies
-* File & Directory Organization
-* Documentation & Diagrams
-
-### HTML
-* Best Practices
-* Accessibility
-* Structure
-
-### CSS
-* Accessibility
-* Performance
-* Responsive
-* Syntax & Formatting
-* Documentation
-* Frameworks
-
-### PHP
-* WordPress
-    * Best Practices
-    * Security
-    * Patterns
-    * Libraries
-    * Testing
-* General
-    * Best Practices
-    * Security
-    * Patterns
-    * Libraries
-
-### JavaScript
-* WordPress
-    * Best Practices
-    * Style
-    * Testing
-    * Libraries
-* General
-    * Best Practices
-    * Style
-    * Testing
-    * Libraries
-
-### Projects & Collaboration
-* Starting a Project
-* Peer Architecture & Coding
-* Definition of Done
-* Submitting a Pull Request
-* Reviewing a Pull Request
-* Wrapping a Project
-
-### Tools & Services
-* Local Development
-* Production Environment Norms
-* Staging Environment Norms
-* Scaffolding
-* Builds & Runners
-
-
-## Contributing
-
-We use semver to track this repo because it can be improved today and has to consider tomorrow!
-
-Pull Requests are welcome and encouraged.
-
-## Credits & Nods
-
-This document has been influenced by:
-* WordPress Core & Gutenberg Project
-* 10up Engineering Standards
-* WordPress VIP Coding Standards
-* INN Docs
+### 1. Intro
+### 2. Standards
+### 3. Naming
+#### 3.1 Projects
+#### 3.2 Files & Directories
+#### 3.3 Code
+#### 3.4 Global Namespaces
+### 4. Frontend Best Practices
+### 5. WordPress
+#### 5.1 WordPress Assets
+#### 5.2 WordPress Hooks
+#### 5.3 WordPress PHP
+#### 5.4 WordPress JavaScript
+#### 5.5 WordPress Security
+#### 5.6 WordPress Interfaces
+#### 5.7 WordPress Editor & Blocks
+#### 5.8 WordPress Performance
+#### 5.9 WP-CLI
+#### 5.10 WordPress Tools & Services
+### 6. Laravel
+### 7. Philosophy
+### 8. Resources
