@@ -9,8 +9,6 @@ While we recognize Newfold Labs codebases have often come from legacy codebases 
 We have naming standards for...
 * Projects (Packages & Repositories)
 * Files & Directories
-* Code (objects, components, namespaces, methods, etc.)
-* Data keys (options, caches, schemas, etc.)
 * Global namespaces
 
 ## General Principles
