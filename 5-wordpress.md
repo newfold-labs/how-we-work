@@ -25,7 +25,7 @@ Generally we support:
 
 WordPress provides recommendations and minimums.
 
-At writing (April 2022), WordPress recommends PHP 7.4 and supports 5.2.20+.
+At writing (April 2022), WordPress recommends PHP 7.4 and supports 5.6.20+.
 
 We currently support two point releases below WordPress' recommendation -- all our products must work 100% two point releases below the recommendation.
 
