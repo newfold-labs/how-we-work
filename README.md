@@ -27,3 +27,4 @@ This document organizes how we work at Newfold Digital on WordPress and WordPres
 ### 7. Philosophy
 ### 8. Resources
 ### 9. Version Control
+### 10. Releases
