@@ -1,0 +1,50 @@
+---
+---
+// Set Variables
+
+// Headers
+$header-heading-color: #fff !default;
+$header-bg-color: #EC5328 !default;
+$header-bg-color-secondary: #BD4220 !default;
+
+// Text
+$section-headings-color: #EC5328 !default;
+$body-text-color: #404040 !default;
+$body-link-color: #EC5328 !default;
+$blockquote-text-color: #82AEB9 !default;
+
+// Code
+$code-bg-color: #FDEEEA !default;
+$code-text-color: #000000 !default;
+
+// Borders
+$border-color: #5BABE2 !default;
+$table-border-color: #5BABE2 !default;
+$hr-border-color: #5BABE2 !default;
+
+
+
+// Import theme style
+@import "{{ site.theme }}";
+
+
+
+// Custom theme styles
+
+// Keep site title link white
+.page-header a {
+    color: $header-heading-color;
+}
+
+// Place button in top right corner
+.page-header .btn {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+// Indentation for TOC
+h3 + h4,
+h4 + h4 {
+    margin-left: 2rem;
+}
