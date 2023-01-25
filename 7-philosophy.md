@@ -11,7 +11,7 @@ A key part of our team culture is to always be learning. Our team strives to alw
 
 ### User-centric engineering
 
-Our motivations for writing code should always start with the end user. What are their motiviations? What are their goals? What are their concerns? How can we best empower end users and get out of their way?
+Our motivations for writing code should always start with the end user. What are their motivations? What are their goals? What are their concerns? How can we best empower end users and get out of their way?
 
 Kind of like Human-Oriented Design, but for software.
 
@@ -25,7 +25,7 @@ In general, code in the simplest way not the coolest or cleverist way. Aim to sh
 
 ### Balance repetition and reuse
 
-There is a fine balance between chosing to repeat simple code and building reusable abstractions.
+There is a fine balance between choosing to repeat simple code and building reusable abstractions.
 
 Use good judgement for when to create utilities and abstractions that keep code uniform and maintainable, increase quality and expedite development. 
 
@@ -37,8 +37,8 @@ We have concrete performance practices for different kinds of code, but it is al
 
 Due to the distributed or high-traffic nature of many of our codebases, micro-optimizations add up in scale and over time. The flip side of that coin is that unoptimized, unminified and unnecessary assets exponentially eat away at storage and bandwidth as our userbases scale.
 
-We don't optimize just for optimization sake, but we look for opportunities to prioritize our resources and give time back to users.
+We don't optimize just for optimization's sake, but we look for opportunities to prioritize our resources and give time back to users.
 
 ### Legacy code is value code
 
-Old code isn't inheriently bad code. Old code has stood the test of time and created value for users and value for the organization. It may not be a foundation we can extend or build more off of, but that doesn't mean it wasn't good code when it was written and valuable code today.
+Old code isn't inherently bad code. Old code has stood the test of time and created value for users and value for the organization. It may not be a foundation we can extend or build more off of, but that doesn't mean it wasn't good code when it was written and valuable code today.
