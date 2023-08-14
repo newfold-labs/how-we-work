@@ -50,6 +50,9 @@ This document organizes how we work at Newfold Digital on WordPress and WordPres
 
 ### 9. [Version Control](9-version-control.md)
 
+#### 9.1 [Organization Teams](9.1-org-teams.md)
+
+#### 9.2 [Token Management](9.2-tokens.md)
 ### 10. [Releases](10-releases.md)
 
 ### 11. [Module Development](11-module-development.md)
