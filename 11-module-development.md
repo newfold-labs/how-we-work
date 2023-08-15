@@ -15,7 +15,7 @@ plugin. Modules are developed in their own repositories and are installed as dep
   developing and releasing the module.
 - The module owners are responsible for overseeing all code reviews and releases within their module repository.
 - The module owners are responsible for writing tests for all new functionality and updating tests for existing
-  functionality. Currently, these tests are to live in the brand plugin repositories.
+  functionality. Currently, these tests are to live in the module repositories.
 - The module owners are responsible for creating and testing **pre-releases** of the brand plugins that use the module.
 - When the module owners determine that a module release and brand plugin pre-release is ready for production, it is
   their responsibility to create a PR against the brand plugin's `develop` branch to update the module version.
