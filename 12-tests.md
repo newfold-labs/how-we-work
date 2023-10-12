@@ -27,6 +27,8 @@ This marks a departure from the previous practice where all tests were located i
 
 Furthermore, this change brings us closer to the long-term goal of having workflows within the module to run tests before tagging a release. For the time being, it's important to ensure that tests pass locally before tagging a release, so we avoid a series of module releases solely to achieve passing tests in the plugin.
 
+Where possible, new features and bug fixes should include a test to verify the feature or fix and ensure that the feature or fix remains functional.
+
 ## Best Practices
 
 When writing end-to-end tests, test functionality not code. For example, "This page is the color I expect and all 

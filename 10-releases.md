@@ -2,8 +2,12 @@
 
 ## Cadence
 
-- We will do a new release every two weeks on Wednesdays. 
-- Code must be in a PR the Wednesday before the release date to be considered.
+- We will issue new release on Wednesdays every other week (refer to the release calendar for specific releases).
+- Updates must be included in a PR the Wednesday before the scheduled release date to be considered.
+    - The PR should include a description of the updates and instructions for testing.
+    - The PR should preferably include updated tests (see [Tests](12-tests.md) page for more) to document these updates, or at least a video showing the updates.
+    - When creating the PR branch in the plugin repo so the github workflows function properly (packages can install and tests can run).
+    - A PR with no description or test coverage is not able to be merged.
 
 ## Compatability
 
