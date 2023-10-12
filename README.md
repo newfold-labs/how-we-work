@@ -57,6 +57,6 @@ This document organizes how we work at Newfold Digital on WordPress and WordPres
 
 ### 11. [Module Development](11-module-development.md)
 
-### 12. [Tests](11-tests.md)
+### 12. [Tests](12-tests.md)
 
 ### 13. [Architectural Review](13-architectural-review.md)
