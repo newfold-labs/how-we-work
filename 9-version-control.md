@@ -1,7 +1,6 @@
 # Version Control
 
-We use [Git](https://git-scm.com/) to manage our code and
-use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) as our workflow.
+We use [Git](https://git-scm.com/) to manage our code and use [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) as our workflow. Whenever possible, simply create a branch on the project repo rather than forking to another repository. This is because there are some workflows that only run on the main repository (such as build steps and cypress cloud test submission). For testing it is important to have these workflows and artifacts in place. If you do not have proper permission to create a branch on the repository in question, please request access.
 
 ## Branch Naming
 
@@ -21,8 +20,7 @@ All production releases for brand plugins should be tagged by the WordPress COE 
 plugin pre-releases can be tagged by anyone, but **MUST** be
 [marked on GitHub as a pre-release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository#:~:text=To%20notify%20users%20that%20the%20release%20is%20not%20ready%20for%20production%20and%20may%20be%20unstable%2C%20select%20This%20is%20a%20pre%2Drelease.).
 
-Failure to properly name and mark a release as a pre-release can result in the release being automatically deployed 
-to production.
+Failure to properly name and mark a release as a pre-release can result in the release being automatically deployed to production.
 
 ### Tagging
 
@@ -32,8 +30,8 @@ branches:
 | Tag | Branch                   | Examples |
 | --- |--------------------------| --- |
 | X.Y.Z | `main`, `master`, `trunk` | `1.2.0` |
-| x.y.Z-rc.N | `hotfix/1.2.1`           | `1.2.1-rc.1`, `1.2.1-rc.2` |
-| X.Y.z-rc.N | `release/1.2.0`          | `1.2.0-rc.1` `1.2.0-rc.2` |
+| X.Y.Z-rc.N | `hotfix/1.2.1`           | `1.2.1-rc.1`, `1.2.1-rc.2` |
+| X.Y.Z-rc.N | `release/1.2.0`          | `1.2.0-rc.1` `1.2.0-rc.2` |
 | X.Y.Z-alpha.N | `develop`                | `1.2.2-alpha.1`, `1.2.2-alpha.2` |
 | X.Y.Z-beta.N | `develop`                | `1.2.2-beta.1`, `1.2.2-beta.2` |
 
