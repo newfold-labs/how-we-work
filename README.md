@@ -38,7 +38,7 @@ This document organizes how we work at Newfold Digital on WordPress and WordPres
 
 #### 5.8 [WordPress Performance](5.8-wordpress-performance.md)
 
-#### 5.9 [WordPress Translations](5.9-wordpress-i18n.md)
+#### 5.9 [WordPress Translations](5.9-wp-i18n.md)
 
 #### 5.10 [WP-CLI](5.10-wp-cli.md)
 
