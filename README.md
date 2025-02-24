@@ -44,6 +44,8 @@ This document organizes how we work at Newfold Digital on WordPress and WordPres
 
 #### 5.11 [WordPress Tools & Services](5.11-tools-services.md)
 
+#### 5.12 [Crowdin Translation Workflow](5.12-crowdin-translation-workflow.md)
+
 ### 6. [Laravel](6-laravel.md)
 
 ### 7. [Philosophy](7-philosophy.md)
