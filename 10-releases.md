@@ -2,41 +2,106 @@
 
 ## Cadence
 
-- New releases will be issued on Wednesdays every other week (refer to the release calendar for specific dates).
-- Updates must be included in a PR by the Wednesday before the scheduled release date to be considered.
-    - The PR should include a description of the updates and instructions for testing.
-    - Preferably, the PR should include updated tests (see [Tests](12-tests.md) for more information), or at least a video demonstrating the updates.
-    - Ensure the PR branch is created in the plugin repository for proper GitHub workflow functionality (package installations and test runs) and branch names follow convention (see [Version Control](9-version-control.md)).
-    - PRs without a description or test coverage cannot be merged.
+- Scheduled releases are issued **on Wednesdays**, approximately every three weeks (refer to the release calendar for specific dates).
+- **Version semantics:**
+  - A scheduled release is typically a **minor** version bump.
+  - An out-of-cycle release or hotfix is typically a **patch** version bump.
+  - A major initiative update is a **major** release.
 
 ## Compatibility
 
 - All production code must be compatible with the three latest WordPress versions.
 - All production code must be compatible with the latest PHP version and any PHP version with more than 5% usage as [per the WordPress stats page](https://wordpress.org/about/stats/#php_versions).
 
-## Release Process, Coordination, and Flow
+## Release Planning (Jira)
 
-We have a weekly internal release coordination meeting to discuss the day's release (if applicable) and set up the following release. If you have a PR against the plugin you want included in next week's release, it should be submitted by this call. Please join the call to discuss your PR. Items included and rejected will be discussed. Attendance is optional but recommended for anyone with items they want included in the plugin. All engineering and product team members are welcome to join and participate.
+We use **Jira releases** to collect work for a release. Tickets have a **Fix Version** field; attach the upcoming release to it so all work is tracked there. All work that goes into a release should have a ticket—no release work without a ticket.
 
-All changes to brand plugins must be made in the form of mergeable PRs against the plugin, often as module updates. PRs need to be submitted by Wednesday to be considered for inclusion in the following Wednesday's release. All other changes are considered out-of-cycle releases and require approval by an engineering director or product VP.
+We no longer use release coordination meetings or GitHub milestones for release planning; Jira releases and Fix Version are the source of truth.
 
-After the meeting, any mergeable and approved PRs will be merged into the `develop` branch of the respective plugin. A `release` branch will then be created from `develop` in preparation for the following week's scheduled release. This `release` branch will have an associated PR targeting `main`, creating builds/artifacts for testing throughout the week. The goal is to create a release PR on Wednesday for the following Wednesday's release, giving everyone a full week to test (treating it like a private beta or release candidate) and making it clear what is included in the release.
+**Cutoff:** The cutoff for “what’s in this release” is typically when the Release Candidate is created. Exceptions: issues that may cause a P3 event can be pulled in, and product leads can override what goes into a release.
 
-In the event a hotfix release is needed, we'll branch from `main` to address the fix.
+## Release Process and Flow
 
-To further assist in release planning and coordination, we'll use milestones in GitHub to indicate the target release for each PR. These milestones will reference the date initially, and once we've determined the release version, we will add that to the milestone title as well.
+Workflows (**Prepare Release** and the release workflow) are run in the **plugin repo on GitHub**, under the **Actions** tab.
 
-### Rolling Release
+### Preparing a Release
 
-1. PRs submitted in a mergeable state before the Wednesday call will be considered for the following release.
-2. During the Wednesday call:
-   - Review PRs tagged for the upcoming milestone and validate the milestone or bump the PR to the following milestone if deemed not mergeable.
-   - Merge any remaining approved PRs to the `develop` branch. These can also be merged earlier throughout the cycle when they are approved (PRs do not need to wait for the call to be merged once they are mergeable and approved).
-3. End of Day Wednesday:
-   - Create a `release` branch from `develop` and create a release PR targeting `main`.
-   - Share build files for testing (product managers, engineers, and QA are expected to test the release candidate).
-4. Testing:
-   - Any issues found during testing will need a clear discussion to determine if the fix is minor enough to be included in the release (PRs for fixes should target the release branch). If a fix cannot be made in time, we will either delay the release or revert the error-prone commit in the release branch, with the expectation that it can be fixed prior to the next release. This will be evaluated on a case-by-case basis, considering the time remaining before release, the severity of the issue, and the expected timeline to fix the issue.
-5. Release Wednesday:
-   - Merge the release PR into `main` and tag the release. Close the milestone as complete.
-   - Merge `main` back to `develop` and start the release process over. Any items discussed in our weekly call should be ready to merge to `develop` and create a new `release` branch and PR. If there are no mergeable PRs, no release branch/PR will be created for the week, but planning for the next release will still be discussed in the call.
+The week before a scheduled release (and ad hoc for out-of-cycle releases), we prepare the release:
+
+- Run the **Prepare Release** workflow. It handles:
+  - Version bump
+  - Updates to build files
+  - Updates to language files
+- For a **normal (scheduled) release**, base the release off the `develop` branch.
+- For **out-of-cycle releases** (e.g. hotfixes), typically base the release off `main`.
+
+### Tests and QA
+
+- **Tests must always pass** for a release.
+- Ideally, give the QA team **about a week** to test the Release Candidate before the release goes out.
+
+### Building and Publishing
+
+The **release workflow** prepares and packages the release automatically but **does not push it to customers**. It builds a zip of the plugin and **attaches it to the GitHub release** once the build completes.
+
+- We use an **R2 storage bucket** on the NewFold WP team Cloudflare account. Access and upload details are not documented here (this doc is public); release coordinators should know the process or ask team leads for access.
+- After the release is built and **manually tested** by the release coordinator or deputy:
+  1. Manually upload the release zip to the **prod free** bucket.
+  2. The release system identifies the plugin and version and makes it available at our release endpoint.
+
+So: build → manual testing by release coordinator/deputy → manual upload to prod free bucket → release system serves it at the release endpoint.
+
+### Rollback and hotfixes
+
+As distributed code, we can’t really “roll back” a release. Instead we **issue a hotfix release** (patch version).
+
+If we catch issues **before** the release is placed on R2, we can:
+- Delete the release in GitHub and delete the tag.
+- Continue working on the Release Candidate in a new PR. The version is already bumped, so we don’t need to run Prepare Release again—just open a fresh PR for the code changes.
+
+## Release lead checklist
+
+Use this checklist when you are running a release (as release lead). Release lead (coordinator or deputy) can be any member of the plugin team. Adjust as needed for your release.
+
+1. **Confirm planning**
+   - [ ] Jira release exists for this version.
+   - [ ] All work going into the release has tickets with **Fix Version** set to this release.
+   - [ ] Ensure work from all tickets is release ready.
+   - [ ] Module PRs are merged, module releases tagged, and module bumps included in the plugin.
+
+2. **Prepare the release (week before scheduled release, or when ready for out-of-cycle)**
+   - [ ] Base work off `develop` (scheduled) or `main` (out-of-cycle/hotfix).
+   - [ ] Run the **Prepare Release** workflow (version bump, build files, language files).
+   - [ ] Mark the **draft** PR as ready for review for the tests to run.
+   - [ ] Ensure **tests pass**.
+   - [ ] If any tests fail, diagnose and fix (in the test suite or by updating and tagging a new module release for flaky or broken tests that weren’t caught earlier).
+
+3. **Release Candidate and QA**
+   - [ ] Share Release Candidate for QA.
+   - [ ] Allow QA time to test (ideally a week).
+   - [ ] Create a change request for this release (Change Management in Newfold’s ServiceNow portal).
+   - [ ] Address QA tickets.
+
+4. **Build and publish**
+   - [ ] Get required approvals on the Release Candidate PR.
+   - [ ] Merge the Release Candidate PR to `main`.
+   - [ ] Tag a GitHub release (use the "Generate release notes" button).
+   - [ ] Wait for and watch the **release workflow** to produce the package (it does not push to customers).
+   - [ ] **Manually test** the built package on a live site—verify no fatal issues or missing files.
+   - [ ] **Manually upload** the release zip (from the GitHub release assets) to the **prod free** R2 bucket (NewFold WP team Cloudflare account). Ask team leads for access if needed.
+   - [ ] Confirm the release is available at the release endpoint (`https://hiive.cloud/workers/release-api/plugins/newfold-labs/...`).
+
+5. **Cleanup and Housekeeping**
+   - [ ] Merge `main` into `develop` to ensure all release changes are reflected there.
+   - [ ] Close the release in Jira: update ticket status to closed or move any incomplete tickets to the next release.
+   - [ ] Mark the change request as complete (ServiceNow).
+   - [ ] Post the release in our Teams **Product Delivery** channel.
+
+### Summary Flow
+
+1. **Planning:** Tickets have Fix Version set to the upcoming Jira release; module work is merged and tagged.
+2. **Prepare:** Week before (or ad hoc for out-of-cycle), run the Prepare Release workflow from `develop` (or `main` for hotfixes). Mark draft PR ready for review, ensure tests pass.
+3. **QA:** Share Release Candidate, create change request, allow QA time (ideally a week), address QA tickets.
+4. **Release:** Get approvals, merge RC PR to `main`, tag GitHub release, run release workflow, manually test the package, upload zip to prod free R2 bucket, confirm availability at the release endpoint.
+5. **Cleanup:** Merge `main` into `develop`, close Jira release, complete change request, post in Teams Product Delivery channel.
