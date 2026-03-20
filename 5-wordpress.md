@@ -4,18 +4,18 @@ We're proud to help millions of customers get online with WordPress.
 
 ## Minimum Supported Versions
 
-_Last updated: January 2023_
+_Last updated: March 2026_
 
 ### WordPress Core
 
 We officially support the last three major releases of WordPress in our products. We always strive for more and expect 
 products to gracefully degrade whenever possible, prompting users to update.
 
-_Major releases of WordPress are 5.6, 5.7, 5.8 not WordPress 3.x or WordPress 4.x._
+_Major releases of WordPress are 6.7, 6.8, 6.9 not WordPress 4.x or WordPress 5.x._
 
 ### Browser Support
 
-We follow the @wordpress/browserlist-config. We do not support any version of Internet Explorer.
+We follow the @wordpress/browserslist-config. We do not support any version of Internet Explorer.
 
 Generally we support:
 * Browsers with >1% usage.
@@ -26,7 +26,7 @@ Generally we support:
 
 WordPress provides recommendations and minimums.
 
-At writing (January 2023), [WordPress recommends](https://wordpress.org/about/requirements/) PHP 7.4 and supports 5.6.20+.
+As of March 2026, [WordPress recommends](https://wordpress.org/about/requirements/) PHP 8.3 or greater. The minimum supported version is PHP 7.4.
 
 We currently support two point releases below WordPress' recommendation -- all our products must work 100% two point releases below the recommendation.
 

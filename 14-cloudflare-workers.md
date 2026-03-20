@@ -106,11 +106,11 @@ You can use the [Workers Vitest integration](https://developers.cloudflare.com/w
 
 #### Getting Started
 
-Add the dependices to your project:
-_Note: as of writing this, you'll need to use version 1.3.0 of `vitest` to work with Workers. [Check if this has changed](https://developers.cloudflare.com/workers/testing/vitest-integration/get-started/write-your-first-test/#install-vitest-and-cloudflarevitest-pool-workers) if you want to use a newer version._
+Add the dependencies to your project:
+_Note: check the [Cloudflare Workers Vitest integration docs](https://developers.cloudflare.com/workers/testing/vitest-integration/get-started/write-your-first-test/#install-vitest-and-cloudflarevitest-pool-workers) for the latest compatible version of `vitest`._
 
 ```shell
-npm install vitest@1.3.0 --save-dev --save-exact
+npm install vitest --save-dev
 npm install @cloudflare/vitest-pool-workers --save-dev
 ```
 
