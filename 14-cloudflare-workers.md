@@ -30,7 +30,7 @@ Cloudflare has a key-value store that can be used to store data that can be acce
 To create a new key-value namespace, run the following command:
 
 ```shell
-wrangler kv:namespace create <YOUR_NAMESPACE>
+wrangler kv namespace create <YOUR_NAMESPACE>
 ```
 
 After running this, you'll want to bind your namespace to your worker. This is done in the `wrangler.toml` file.
@@ -41,10 +41,10 @@ kv-namespaces = [
 ]
 ```
 
-You'll also most likely want to create a preview namespace for local development. Simply add the `-preview` flag to the `create` command:
+You'll also most likely want to create a preview namespace for local development. Simply add the `--preview` flag to the `create` command:
 
 ```shell
-wrangler kv:namespace create <YOUR_NAMESPACE> --preview
+wrangler kv namespace create <YOUR_NAMESPACE> --preview
 ```
 
 Then add the preview namespace to your `wrangler.toml` file:
@@ -62,14 +62,14 @@ _To use the preview environment, add `--preview` to the command._
 
 ```shell
 # Read from KV
-wrangler kv:key get --binding=YOUR_NAMESPACE "some-key"
+wrangler kv key get --binding=YOUR_NAMESPACE "some-key"
 
 # Write to KV
-wrangler kv:key put --binding=MY_KV "some-key" "some-value"
+wrangler kv key put --binding=YOUR_NAMESPACE "some-key" "some-value"
 ```
 
 In your worker code:
-_Your worker will automatically use the preview environment when running locally, but you can use the normal environment by addding the `--remote` flag when running `wrangler dev`.
+_Your worker will automatically use the preview environment when running locally, but you can use the normal environment by adding the `--remote` flag when running `wrangler dev`._
 
 ```javascript
 // Read from KV
@@ -106,53 +106,56 @@ You can use the [Workers Vitest integration](https://developers.cloudflare.com/w
 
 #### Getting Started
 
-Add the dependices to your project:
-_Note: as of writing this, you'll need to use version 1.3.0 of `vitest` to work with Workers. [Check if this has changed](https://developers.cloudflare.com/workers/testing/vitest-integration/get-started/write-your-first-test/#install-vitest-and-cloudflarevitest-pool-workers) if you want to use a newer version._
+Add the dependencies to your project:
+_Note: check the [Cloudflare Workers Vitest integration docs](https://developers.cloudflare.com/workers/testing/vitest-integration/get-started/write-your-first-test/#install-vitest-and-cloudflarevitest-pool-workers) for the latest compatible version of `vitest`._
 
 ```shell
-npm install vitest@1.3.0 --save-dev --save-exact
+npm install vitest --save-dev
 npm install @cloudflare/vitest-pool-workers --save-dev
 ```
 
 Then create a `vitest.config.js` file in your project root:
 
 ```javascript
-import { defineWorkersConfig } from '@cloudflare/vitest-pool-workers/config';
+import { cloudflareTest } from '@cloudflare/vitest-pool-workers';
+import { defineConfig } from 'vitest/config';
 
-export default defineWorkersConfig({
-  test: {
-    poolOptions: {
-      workers: {
-        singleWorker: true,
-        wrangler: { configPath: './wrangler.toml' },
-      },
-    },
-  },
+export default defineConfig({
+  plugins: [
+    cloudflareTest({
+      singleWorker: true,
+      wrangler: { configPath: './wrangler.toml' },
+    }),
+  ],
 });
 ```
 
 Finally, write your tests in a `test` directory in your project root:
 
 ```javascript
-import { env, createExecutionContext, waitOnExecutionContext } from 'cloudflare:test';
-import { describe, it, expect } from 'vitest';
+import { env } from "cloudflare:workers";
+import {
+  createExecutionContext,
+  waitOnExecutionContext,
+} from "cloudflare:test";
+import { describe, it, expect } from "vitest";
+// Import your worker so you can unit test it
+import worker from "../src";
 
-import worker from '../src';
+// For now, you'll need to do something like this to get a correctly-typed
+// `Request` to pass to `worker.fetch()`.
+const IncomingRequest = Request;
 
-// Name your test suite.
-describe('Hello World worker', () => {
-
-  // Name your test.
-  it('responds with Hello World!', async () => {
-
-    // Scaffold a request and context. The URL is arbitrary.
-    const request = new Request('http://example.com');
+describe("Hello World worker", () => {
+  it("responds with Hello World!", async () => {
+    const request = new IncomingRequest("http://example.com/404");
+    // Create an empty context to pass to `worker.fetch()`
     const ctx = createExecutionContext();
     const response = await worker.fetch(request, env, ctx);
+    // Wait for all `Promise`s passed to `ctx.waitUntil()` to settle before running test assertions
     await waitOnExecutionContext(ctx);
-
-    // Write your test.
-    expect(await response.text()).toBe('Hello World!');
+    expect(response.status).toBe(404);
+    expect(await response.text()).toBe("Not found");
   });
 });
 ```
@@ -161,54 +164,45 @@ describe('Hello World worker', () => {
 
 ```javascript
 import { SELF } from 'cloudflare:test';
-import { expect, it } from 'vitest';
+import { it } from 'vitest';
 
-import '../src/';
-
-it('stores in KV namespace', async () => {
+it('stores in KV namespace', async ({ expect }) => {
   let response = await SELF.fetch('https://example.com/kv/key', {
     method: 'PUT',
     body: 'value',
   });
   expect(response.status).toBe(204);
 
-  response = await SELF.fetch("https://example.com/kv/key");
+  response = await SELF.fetch('https://example.com/kv/key');
   expect(response.status).toBe(200);
-  expect(await response.text()).toBe("value");
-});
-
-it("uses isolated storage for each test", async () => {
-  // Check write in previous test undone
-  const response = await SELF.fetch("https://example.com/kv/key");
-  expect(response.status).toBe(204);
+  expect(await response.text()).toBe('value');
 });
 ```
 
 #### Testing with multiple Workers
 
-[Testing with multiple workers](https://github.com/cloudflare/workers-sdk/tree/f520a71201c85a2ef3c071eff017816611b37c55/fixtures/vitest-pool-workers-examples/multiple-workers) is a bit more complex, as you can only read the `wrangler.toml` file for one worker at a time. You'll need to scaffold out the options for each worker in your `vitest.config.js` file:
+[Testing with multiple workers](https://github.com/cloudflare/workers-sdk/tree/main/fixtures/vitest-pool-workers-examples/multiple-workers) is a bit more complex, as you can only read the `wrangler.toml` file for one worker at a time. You'll need to scaffold out the options for each worker in your `vitest.config.js` file:
 
 ```javascript
-export default defineWorkersProject({
-  test: {
-    poolOptions: {
-      workers: {
-        singleWorker: true,
-        wrangler: { configPath: './wrangler.toml' },
-        miniflare: {
-          workers: [
-            // Scaffold additional workers.
-            {
-              name: '<your-worker-name>',
-              modules: true,
-             // This is the path to where you're mocking out the worker or you can have this configured via an environment variable and build script.
-              scriptPath: './<your-worker-name>/index.js',
-              compatibilityDate: "2024-01-01",
-              compatibilityFlags: ["nodejs_compat"],
-            },
-          ],
-        },
+import { cloudflareTest } from '@cloudflare/vitest-pool-workers';
+import { defineConfig } from 'vitest/config';
+
+export default defineConfig({
+  plugins: [
+    cloudflareTest({
+      singleWorker: true,
+      wrangler: { configPath: './wrangler.toml' },
+      miniflare: {
+        workers: [
+          {
+            name: '<your-worker-name>',
+            modules: true,
+            scriptPath: './<your-worker-name>/index.js',
+            compatibilityDate: '2024-01-01',
+            compatibilityFlags: ['nodejs_compat'],
+          },
+        ],
       },
-    },
-  },
+    }),
+  ],
 });
