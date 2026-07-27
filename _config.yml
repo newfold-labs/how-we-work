@@ -1,4 +1,11 @@
 title: How We Work
-description: At Newfold Digital on WordPress and WordPress-adjacent codebases.
+description: Moved to the Newfold Labs standards repository.
 theme: jekyll-theme-cayman
 show_downloads: false
+
+# This site is now a redirect shim. GitHub does not redirect project Pages URLs
+# across repositories, and jekyll-redirect-from only covers path changes inside
+# one site, so the only way old links keep working is for this site to keep
+# publishing pages that forward.
+plugins:
+  - jekyll-redirect-from

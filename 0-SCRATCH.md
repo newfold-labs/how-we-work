@@ -1,9 +1,7 @@
-TODO:
-* Privacy Standards
-* Documentation Standards
-* Laravel Standards
-* Serverless Function Standards
+---
+redirect_to: https://newfold-labs.github.io/standards/meta/migration-map.html
+---
 
-Enhance:
-* WordPress JavaScript
-* WordPress Editor(s) & Blocks
+This page moved to the standards repository.
+
+<https://newfold-labs.github.io/standards/meta/migration-map.html>

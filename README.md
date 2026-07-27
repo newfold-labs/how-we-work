@@ -1,68 +1,31 @@
-# How We Work
+# How We Work has moved
 
-This document organizes how we work at Newfold Digital on WordPress and WordPress-adjacent codebases.
+These standards now live in **[newfold-labs/standards](https://github.com/newfold-labs/standards)**
+and are published at **[newfold-labs.github.io/standards](https://newfold-labs.github.io/standards/)**.
 
-## Table of Contents
+They are the same standards, filed by scope instead of by reading order, with
+metadata on every document so checks and AI tooling can cite the exact standard
+behind an answer.
 
-### 1. [Intro](1-intro.md)
+## Why this repository still exists
 
-### 2. [Standards](2-standards.md)
+It publishes a redirect shim. Every old page here forwards to its new home, and
+anything unrecognised falls through to a catch-all.
 
-### 3. [Naming](3-naming.md)
+GitHub does not redirect project Pages URLs across repositories, and
+`jekyll-redirect-from` only covers path changes inside a single site. So the only
+way a link written against `/how-we-work/` keeps working is for this site to keep
+publishing pages that forward. Archiving the repository would break every one of
+those links.
 
-#### 3.1 [Projects](3.1-projects.md)
+Do not add content here. Open a pull request against
+[newfold-labs/standards](https://github.com/newfold-labs/standards) instead; see
+its [contribution process](https://newfold-labs.github.io/standards/meta/contributing.html).
 
-#### 3.2 [Files & Directories](3.2-files-directories.md)
+## Where everything went
 
-#### 3.3 [Code](3.3-code.md)
+The [migration map](https://newfold-labs.github.io/standards/meta/migration-map.html)
+lists all 33 pages, where each one landed, which ones were split across several
+documents, and what changed in the content along the way.
 
-#### 3.4 [Global Namespaces](3.4-global-namespaces.md)
-
-### 4. [Frontend Best Practices](4-frontend-best-practices.md)
-
-### 5. [WordPress](5-wordpress.md)
-
-#### 5.1 [WordPress Assets](5.1-wordpress-assets.md)
-
-#### 5.2 [WordPress Hooks](5.2-wordpress-hooks.md)
-
-#### 5.3 [WordPress PHP](5.3-wordpress-php.md)
-
-#### 5.4 [WordPress JavaScript](5.4-wordpress-js.md)
-
-#### 5.5 [WordPress Security](5.5-wordpress-security.md)
-
-#### 5.6 [WordPress Interfaces](5.6-wordpress-interfaces.md)
-
-#### 5.7 [WordPress Editor & Blocks](5.7-wordpress-editor-and-blocks.md)
-
-#### 5.8 [WordPress Performance](5.8-wordpress-performance.md)
-
-#### 5.9 [WordPress Translations](5.9-wp-i18n.md)
-
-#### 5.10 [WP-CLI](5.10-wp-cli.md)
-
-#### 5.11 [WordPress Tools & Services](5.11-tools-services.md)
-
-#### 5.12 [Crowdin Translation Workflow](5.12-crowdin-translation-workflow.md)
-
-#### 5.13 [AI Translation Workflow Documentation](5.13-ai-translation-workflow-documentation.md)
-
-### 6. [Laravel](6-laravel.md)
-
-### 7. [Philosophy](7-philosophy.md)
-
-### 8. [Resources](8-resources.md)
-
-### 9. [Version Control](9-version-control.md)
-
-#### 9.1 [Organization Teams](9.1-org-teams.md)
-
-#### 9.2 [Token Management](9.2-tokens.md)
-### 10. [Releases](10-releases.md)
-
-### 11. [Module Development](11-module-development.md)
-
-### 12. [Tests](12-tests.md)
-
-### 13. [Architectural Review](13-architectural-review.md)
+The full history of this repository is preserved in git.
