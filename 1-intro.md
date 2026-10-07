@@ -1,7 +1,7 @@
 ---
-redirect_to: https://newfold-labs.github.io/standards/general/introduction.html
+redirect_to: https://standards.hiive.cloud/general/introduction.html
 ---
 
 This page moved to the standards repository.
 
-<https://newfold-labs.github.io/standards/general/introduction.html>
+<https://standards.hiive.cloud/general/introduction.html>

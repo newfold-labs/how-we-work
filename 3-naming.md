@@ -1,7 +1,7 @@
 ---
-redirect_to: https://newfold-labs.github.io/standards/general/naming.html
+redirect_to: https://standards.hiive.cloud/general/naming.html
 ---
 
 This page moved to the standards repository.
 
-<https://newfold-labs.github.io/standards/general/naming.html>
+<https://standards.hiive.cloud/general/naming.html>

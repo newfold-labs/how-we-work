@@ -1,7 +1,7 @@
 ---
-redirect_to: https://newfold-labs.github.io/standards/general/philosophy.html
+redirect_to: https://standards.hiive.cloud/general/philosophy.html
 ---
 
 This page moved to the standards repository.
 
-<https://newfold-labs.github.io/standards/general/philosophy.html>
+<https://standards.hiive.cloud/general/philosophy.html>

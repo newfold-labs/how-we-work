@@ -1,7 +1,7 @@
 ---
-redirect_to: https://newfold-labs.github.io/standards/
+redirect_to: https://standards.hiive.cloud/
 ---
 
 How We Work moved to the standards repository.
 
-<https://newfold-labs.github.io/standards/>
+<https://standards.hiive.cloud/>

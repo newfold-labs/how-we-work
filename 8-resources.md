@@ -1,7 +1,7 @@
 ---
-redirect_to: https://newfold-labs.github.io/standards/meta/resources.html
+redirect_to: https://standards.hiive.cloud/meta/resources.html
 ---
 
 This page moved to the standards repository.
 
-<https://newfold-labs.github.io/standards/meta/resources.html>
+<https://standards.hiive.cloud/meta/resources.html>

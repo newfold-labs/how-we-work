@@ -1,7 +1,7 @@
 ---
-redirect_to: https://newfold-labs.github.io/standards/meta/migration-map.html
+redirect_to: https://standards.hiive.cloud/meta/migration-map.html
 ---
 
 This page moved to the standards repository.
 
-<https://newfold-labs.github.io/standards/meta/migration-map.html>
+<https://standards.hiive.cloud/meta/migration-map.html>

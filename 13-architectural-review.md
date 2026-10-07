@@ -1,7 +1,7 @@
 ---
-redirect_to: https://newfold-labs.github.io/standards/process/architectural-review.html
+redirect_to: https://standards.hiive.cloud/process/architectural-review.html
 ---
 
 This page moved to the standards repository.
 
-<https://newfold-labs.github.io/standards/process/architectural-review.html>
+<https://standards.hiive.cloud/process/architectural-review.html>
